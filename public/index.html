@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-gradient"></div>
+    <div class="app-container">
+      <header class="header">
+        <h1>AI Resume Analyzer</h1>
+        <p>Upload your resume (PDF) to get ATS analysis, skills, and suggestions.</p>
+      </header>
+
+      <main class="main">
+        <section class="upload-card glass">
+          <form id="resume-form">
+            <label class="file-label" for="resume">
+              <span>Select Resume (PDF)</span>
+              <input type="file" id="resume" name="resume" accept="application/pdf" required />
+            </label>
+            <button type="submit" class="btn-primary">Analyze Resume</button>
+          </form>
+
+          <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your resume with AI. This may take a few seconds...</p>
+          </div>
+
+          <div id="error" class="error hidden"></div>
+        </section>
+
+        <section id="result-section" class="result-section glass hidden">
+          <h2>Analysis Result</h2>
+
+          <div class="result-grid">
+            <div class="result-block">
+              <h3>ATS Score</h3>
+              <div id="ats-score" class="ats-score">-</div>
+            </div>
+
+            <div class="result-block">
+              <h3>Skills Found</h3>
+              <ul id="skills-list" class="tag-list"></ul>
+            </div>
+
+            <div class="result-block">
+              <h3>Missing / Recommended Skills</h3>
+              <ul id="missing-skills-list" class="tag-list"></ul>
+            </div>
+
+            <div class="result-block full-width">
+              <h3>Suggestions for Improvement</h3>
+              <ul id="suggestions-list" class="suggestions-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built with Node.js, Express, MongoDB, and OpenAI API.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
